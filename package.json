@@ -1,0 +1,24 @@
+{
+  "name": "unibot-nettibaari",
+  "version": "1.0.0",
+  "description": "[Nettibaari](http://nettibaari.puhti.com/) plugin for UniBot. With this plugin you can fetch random or named drink recipe from http://nettibaari.puhti.com/ site.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tarlepp/unibot-nettibaari.git"
+  },
+  "author": "Tarmo Leppänen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tarlepp/unibot-nettibaari/issues"
+  },
+  "dependencies": {
+    "lodash": "~2.4.1",
+    "cheerio": "~0.18.0",
+    "request": "~2.51.0",
+    "shorturl": "0.0.3"
+  }
+}
