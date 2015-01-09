@@ -41,17 +41,32 @@ module.exports = function init(options) {
         pluginConfig = _.merge(pluginConfig, config.plugins.urllog);
     }
 
+    String.prototype.strip = function() {
+        var translate_re = /[öäüÖÄÜß ]/g;
+        var translate = {
+            'ä':'a', 'ö':'o', 'ü':'u',
+            'Ä':'A', 'Ö':'O', 'Ü':'U',
+            ' ':'_', 'ß':'ss'
+        };
+
+        return (this.replace(translate_re, function(match){
+            return translate[match];})
+        );
+    };
+
     // Actual plugin implementation.
     return function plugin(channel) {
         // Regex rules for plugin
         return {
-            '^!drinkki(?: (.*))?$': function kyny(from, matches) {
+            '^!drinkki(?: (.*))?$': function onMatch(from, matches) {
                 var drink = 'Random';
 
+                // Possible drink name given, so normalize it
                 if (matches[1]) {
-                    drink = matches[1].replace(/\s+/, '_');
+                    drink = matches[1].strip().replace(/[^A-Za-z0-9-_]/g, '');
                 }
 
+                // Specify URL for the drink
                 var url = 'http://nettibaari.puhti.com/drinkkiohje/' + drink;
 
                 // Make request to fetch drink data
