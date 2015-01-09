@@ -37,8 +37,8 @@ module.exports = function init(options) {
     };
 
     // Merge configuration for plugin
-    if (_.isObject(config.plugins) && _.isObject(config.plugins.urllog)) {
-        pluginConfig = _.merge(pluginConfig, config.plugins.urllog);
+    if (_.isObject(config.plugins) && _.isObject(config.plugins.nettibaari)) {
+        pluginConfig = _.merge(pluginConfig, config.plugins.nettibaari);
     }
 
     String.prototype.strip = function() {
